@@ -16,7 +16,6 @@
     "build",
     "scripts",
     "acceptance-tests",
-    "../config/webpack",
     "jest",
     "src/setupTests.ts"
   ]
