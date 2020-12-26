@@ -1,10 +1,13 @@
 {
   "name": "fullstack-typescript-react-express",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fullstack application template for React and Express.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client:dev": "cd ./src/client && npm run client:dev",
+    "client:prod": "cd ./src/client && npm run client:prod",
+    "server:prod": "cd ./src/services && npm run build",
+    "start": "cd ./src/services && npm run start"
   },
   "keywords": [],
   "author": "",
