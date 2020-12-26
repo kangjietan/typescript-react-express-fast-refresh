@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "../../dist/client",
     "module": "esnext",
     "target": "es6",
     "lib": ["es6", "dom", "esnext.asynciterable"],
