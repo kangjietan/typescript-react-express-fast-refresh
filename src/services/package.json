@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "ts-node-dev --respawn server/server.ts"
+    "watch": "ts-node-dev --respawn server/server.ts",
+    "build": "tsc -b"
   },
   "keywords": [],
   "author": "",
