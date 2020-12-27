@@ -1,11 +1,12 @@
+const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const path = require("path");
-const SRC_DIR = path.join(__dirname, "../../src/index.tsx");
+const SRC_DIR = path.join(__dirname, "../../src/");
 const DIST_DIR = path.join(__dirname, "../../public/");
 
 module.exports = {
   mode: "development",
   entry: SRC_DIR,
-  devtool: "inline-source-map",
   output: {
     filename: "bundle.js",
     path: DIST_DIR,
@@ -14,13 +15,24 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: { plugins: ["react-refresh/babel"] },
+          },
+          {
+            loader: "ts-loader",
+            options: { transpileOnly: true },
+          },
+        ].filter(Boolean),
       },
     ],
   },
+  plugins: [new ReactRefreshPlugin(), new ForkTsCheckerWebpackPlugin()].filter(
+    Boolean
+  ),
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".js", ".ts", ".tsx"],
   },
   devServer: {
     port: 8000,
