@@ -35,7 +35,7 @@ module.exports = {
     extensions: [".js", ".ts", ".tsx"],
   },
   devServer: {
-    port: 8000,
+    port: 3001,
     hot: true,
     contentBase: DIST_DIR,
   },
