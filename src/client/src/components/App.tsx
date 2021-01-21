@@ -1,26 +1,21 @@
-import React from "react";
-
-import { createGlobalStyle } from "styled-components";
-
-import { Circle1, Circle2, GlassSection, Main } from "./style";
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
+import React, { useState } from "react";
 
 export const App = () => {
+  const [state, setState] = useState({ counter: 0 });
   return (
-    <div>
-      <GlobalStyle />
-      <Main>
-        <GlassSection></GlassSection>
-        <Circle1 />
-        <Circle2 />
-      </Main>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <button
+        onClick={() => setState({ counter: (state.counter += 1) })}
+        style={{ padding: "5rem" }}
+      >
+        Test
+      </button>
     </div>
   );
 };
